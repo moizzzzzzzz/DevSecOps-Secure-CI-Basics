@@ -1,1 +1,4 @@
 requests
+flake8
+gitleaks
+trivy
