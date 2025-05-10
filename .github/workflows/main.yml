@@ -13,15 +13,15 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.x'
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r secure-ci-basics/requirements.txt
 
     - name: Run app
       run: |
-        python src/app.py
+        python secure-ci-basics/src/app.py
 
     - name: Secret Scan with GitLeaks
       uses: zricethezav/gitleaks-action@v2.3.3
@@ -29,7 +29,7 @@ jobs:
     - name: Lint Python Code
       run: |
         pip install flake8
-        flake8 src/ || true
+        flake8 secure-ci-basics/src/ || true
 
     - name: Install Trivy
       run: |
